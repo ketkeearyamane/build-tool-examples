@@ -41,7 +41,7 @@ tasks.named<Test>("test") {
 
 configure<GreetingPluginExtension> {
 
-    message.set("Hi from Gradle")
+    message = "Hi from Gradle"
     outputFiles.from(
         buildFile("a.txt"),
         buildFile("b.txt"))
@@ -70,7 +70,7 @@ class GreetingPlugin : Plugin<Project> {
 
 open class GreetingPluginExtension(project: Project) {
 
-    val message = "hiya"
+    var message = "hiya"
     val outputFiles: ConfigurableFileCollection = project.files()
 }
 
