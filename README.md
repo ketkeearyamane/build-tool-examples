@@ -14,7 +14,8 @@ If you're new to Gradle, read [Gradle docs](https://docs.gradle.org/current/user
 > - Download and install Gradle version 8 or newer. For information on how to install Gradle, see [install gradle](https://gradle.org/install/)
 > - Download and install IntelliJ on your machine. If you don't prefer IntelliJ, you can install any other IDE of your choice.
 
-## Part 1: Set up a basic Gradle project
+## Part 1 - Set up a basic Gradle project
+If you know how to create a basic Gradle project, you can skip forward to [Custom plugin development](part-2-create-a-custom-plugin-extension)
 Once you install all the prerequisites, follow the steps listed below to create and build a basic Gradle project:
 
 1. Open IntelliJ IDEA and create a new project with preset values as shown below:
@@ -45,7 +46,7 @@ Once you install all the prerequisites, follow the steps listed below to create 
 
    ![Output of a basic Hello World Gradle project run](images/run_basic_gradle.png)
 
-## Part 2: Create a custom plugin extension
+## Part 2 - Create a custom plugin extension
 
 The custom Greeting plugin writes the greeting message in a couple of files under the `build` folder, in addition to displaying it on your console. The files are named "a.txt" and "b.txt".<br/>
 
