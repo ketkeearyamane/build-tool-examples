@@ -2,7 +2,7 @@
 
 This tutorial describes how to get started with a basic Gradle project and create a simple plugin extension using Gradle.
 
-The first part explains how to set up a basic Gradle "Hello World" project and run a greeting task. The second part helps you write a custom Greeting plugin using Kotlin.
+The first part explains how to set up a basic "Hello World" project with Gradle and run a greeting task. The second part helps you write a custom Greeting plugin using Kotlin.
 If you're new to Gradle, read [Gradle docs](https://docs.gradle.org/current/userguide/getting_started_eng.html) for more information about Gradle and its features.
 
 > **Note:** What you should know
