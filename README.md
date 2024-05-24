@@ -15,7 +15,7 @@ If you're new to Gradle, read [Gradle docs](https://docs.gradle.org/current/user
 > - Download and install IntelliJ IDEA on your machine. If you don't prefer IntelliJ, you can install any other IDE of your choice.
 
 ## Setting up a basic Gradle project
-If you know how to create a basic Gradle project, you can skip forward to [Greeting plugin development](#creating-a-greeting-plugin). Once you install all the prerequisites, follow the steps listed below to create and build a basic Gradle project:
+If you know how to create a basic Gradle project, you can skip forward to [Creating the Greeting Plugin](#creating-a-greeting-plugin). Once you install all the prerequisites, follow the steps listed below to create and build a basic Gradle project:
 
 1. Open IntelliJ IDEA and create a new project with preset values as shown below:
 
@@ -81,7 +81,7 @@ Since the project uses `Kotlin` as the build script language, you need to write 
 
    ![Apply plugin command](images/apply_plugin.png)
 
-6. Build the project and run `gradle tasks` to check if the new task `hello' is now included in your project's tasks.
+6. Build the project and run `gradle tasks` to check if the new task `hello` is now included in your project's tasks.
 
    ![Listing tasks and checking if the greeting task is included](images/list_gradle_tasks.png)
 
