@@ -14,8 +14,8 @@ If you're new to Gradle, read [Gradle docs](https://docs.gradle.org/current/user
 > - Download and install Gradle version 8 or newer. For information on how to install Gradle, see [install gradle](https://gradle.org/install/)
 > - Download and install IntelliJ on your machine. If you don't prefer IntelliJ, you can install any other IDE of your choice.
 
-## Set up a basic Gradle project
-If you know how to create a basic Gradle project, you can skip forward to [Custom plugin development.](#create-a-custom-plugin-extension)Once you install all the prerequisites, follow the steps listed below to create and build a basic Gradle project:
+## Setting up a basic Gradle project
+If you know how to create a basic Gradle project, you can skip forward to [Custom plugin development](#creating-a-greeting-plugin-extension). Once you install all the prerequisites, follow the steps listed below to create and build a basic Gradle project:
 
 1. Open IntelliJ IDEA and create a new project with preset values as shown below:
 
@@ -45,16 +45,19 @@ If you know how to create a basic Gradle project, you can skip forward to [Custo
 
    ![Output of a basic Hello World Gradle project run](images/run_basic_gradle.png)
 
-## Create a custom plugin extension
+## Creating a Greeting plugin extension
 
-The custom Greeting plugin writes the greeting message in a couple of files under the `build` folder, in addition to displaying it on your console. The files are named "a.txt" and "b.txt".<br/>
+The Greeting plugin extension writes the greeting message into 2 files, _a.txt_ and _b.txt_, under the `build` folder, in addition to displaying it on your console. <br/>
 
+### Gradle plugins
 Gradle comes in with a powerful set of features like dependency management, project configuration, running builds and delivering software easily and quickly. However, if you want to perform other tasks like deploying artifacts, configuring project and enforcing standards, running certain tests
 etc., you can encapsulate such logic in a Gradle plugin. Plugins are lightweight, easy to maintain and promote code re-usability. For more information, see [Gradle plugins.](https://docs.gradle.org/current/userguide/custom_plugins.html)
 
 To create a custom plugin, you need to write an implementation of a plugin. Gradle will then instantiate the plugin and apply it using `<plugin-name>.apply()` method.
 
-Follow the steps below to create the custom Greeting plugin. Since we're using Kotlin as the build script language, you need to write all the custom plugin code in the `build.gradle.kts` file.
+### Steps to create the custom Greeting plugin
+
+Since the project uses Kotlin as the build script language, you need to write all the custom plugin code in the `build.gradle.kts` file.
 
 1. Add a class `Greeting` as shown below. This class extends the _**DefaultTask**_, which will write the "Hello World!" message to files. Remember, all classes in Gradle are always final. So, you need to declare your class as `open` when you want to extend it later.  The class takes inputs 
    into 2 variables - `message` for the greeting message and `outputFiles` to hold the output files. It has a function `printMessage` annotated with `@TaskAnnotation` which defines the actual logic of the task.
