@@ -10,9 +10,9 @@ If you're new to Gradle, read [Gradle docs](https://docs.gradle.org/current/user
 > - A hands-on experience with IntelliJ IDEA or any modern IDE is good to have.
 
 > **Note:** Prerequisites to get started
-> - Download and install JDK on your machine. For information on how to install JDK, see [install JDK.](https://docs.oracle.com/en/java/javase/21/install/overview-jdk-installation.html) You can install any version starting with JDK version 11 or newer.
-> - Download and install Gradle version 8 or newer. For information on how to install Gradle, see [install gradle](https://gradle.org/install/)
-> - Download and install IntelliJ on your machine. If you don't prefer IntelliJ, you can install any other IDE of your choice.
+> - Download and install JDK version 11 or newer on your machine. For information on how to install JDK, see [install JDK.](https://docs.oracle.com/en/java/javase/21/install/overview-jdk-installation.html).
+> - Download and install Gradle version 8 or newer on your machine. For information on how to install Gradle, see [install gradle](https://gradle.org/install/).
+> - Download and install IntelliJ IDEA on your machine. If you don't prefer IntelliJ, you can install any other IDE of your choice.
 
 ## Setting up a basic Gradle project
 If you know how to create a basic Gradle project, you can skip forward to [Greeting plugin development](#creating-a-greeting-plugin). Once you install all the prerequisites, follow the steps listed below to create and build a basic Gradle project:
@@ -59,11 +59,12 @@ To create a custom plugin, you need to write an implementation of a plugin. Grad
 Since the project uses `Kotlin` as the build script language, you need to write all the custom plugin code in the `build.gradle.kts` file.
 
 1. Add a class `Greeting` as shown below. This class extends the _**DefaultTask**_, which will write the "Hello World!" message to files. Remember, all classes in Gradle are always final. So, you need to declare your class as `open` when you want to extend it later.  The class takes inputs 
-   into 2 variables - `message` for the greeting message and `outputFiles` to hold the output files. It has a function `printMessage` annotated with `@TaskAnnotation` which defines the actual logic of the task.
+   into 2 arguments - `message` for the greeting message and `outputFiles` for the file names. It has a function `printMessage` annotated with `@TaskAnnotation` which defines the actual logic of the task.
 
    ![Greeting class code extending the default task executing custom logic for the plugin](images/add_greeting_class.png)
 
-2. Add the `GreetingPluginExtension` class which defines 2 properties - `message` for the greeting message and `outputFiles` for the output files. If you want to set the values for the properties in this class itself and not allow anyone to override them, declare them with the `val` keyword. If you want to configure these properties later, declare them with the `var` keyword.
+2. Add the `GreetingPluginExtension` class which defines 2 properties - `message` for the greeting message and `outputFiles` for the file names. If you want to set the values for the properties in this class itself and not allow anyone to override them, declare them with the `val` keyword. If you 
+   want to configure these properties later, declare them with the `var` keyword.
 
    ![GreetingPluginExtension code defining properties required for the task](images/add_greeting_plugin_extension_class.png)
 
