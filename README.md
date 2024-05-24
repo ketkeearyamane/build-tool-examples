@@ -47,7 +47,7 @@ If you know how to create a basic Gradle project, you can skip forward to [Creat
 
 ## Creating a Greeting plugin
 
-The Greeting plugin extension writes the greeting message into 2 files, _a.txt_ and _b.txt_, under the `build` folder, in addition to displaying it on your console.
+The Greeting plugin extension writes the greeting message into 2 files, _a.txt_ and _b.txt_, inside the `build` folder.
 
 ### Gradle plugins
 Gradle comes with a powerful set of features like dependency management, project configuration, running builds, and delivering software easily and quickly. However, if you want to perform other tasks like deploying artifacts, configuring projects, enforcing standards, running certain tests, etc.,
@@ -87,7 +87,7 @@ Since the project uses `Kotlin` as the build script language, you need to write 
 
 7. You can also run a build scan using `gradle build --scan` to share your build reports to other teams.
 
-8. Run the `hello` task using `gradle -i hello`. This command will write the greeting message to the files _a.txt_ and _b.txt_ under your `build` folder.
+8. Run the `hello` task using `gradle -i hello`. This command will write the greeting message to the files _a.txt_ and _b.txt_ inside the `build` folder.
 
    ![Output of the Greeting plugin execution](images/run_custom_plugin.png)
 
