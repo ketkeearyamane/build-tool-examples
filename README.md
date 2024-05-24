@@ -92,6 +92,8 @@ Since the project uses `Kotlin` as the build script language, you need to write 
 
 ## Related articles
 
-[Writing different types of plugins]()
+- [Types of plugins](https://docs.gradle.org/current/userguide/plugins.html)
+- [Writing different types of plugins](https://docs.gradle.org/current/userguide/writing_plugins.html)
+
 
  
