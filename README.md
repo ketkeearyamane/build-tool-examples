@@ -17,7 +17,6 @@ If you're new to Gradle, read [Gradle docs](https://docs.gradle.org/current/user
 ## Part 1: Set up a basic Gradle project
 Once you install all the prerequisites, follow the steps listed below to create and build a basic Gradle project:
 
-
 1. Open IntelliJ IDEA and create a new project with preset values as shown below:
 
    ![Presets to create a basic project in IntelliJ IDEA](images/create_basic_project.png)
@@ -25,26 +24,26 @@ Once you install all the prerequisites, follow the steps listed below to create 
 2. Open a terminal and navigate to the project folder. Run `gradle init`. This command will help set up a Gradle "Hello World" project with `Java` as the source code language and `Kotlin` as the build script language. You can choose the following presets if you're not sure of the choices.
 
 
-![Initialize gradle project preset values_part1](images/execute_gradle_init_1.png)
-![Initialize gradle project preset values_part2](images/execute_gradle_init_2.png)
+   ![Initialize gradle project preset values_part1](images/execute_gradle_init_1.png)
 
-After you run this command, your project structure should look as shown below:
+   ![Initialize gradle project preset values_part2](images/execute_gradle_init_2.png)
 
-![Basic project structure with Gradle](images/display_basic_gradle_project_structure.png)
+   After you run this command, your project structure should look as shown below:
+
+   ![Basic project structure with Gradle](images/display_basic_gradle_project_structure.png)
+
+   Following are some important folders and files to know:
+   - `app` folder: Contains the `build` and `source` folders for your project.
+   - `gradle` folder: Contains code for gradle wrapper files and a `libs.versions.toml` file. The optional `libs.versions.toml` file is used as a catalog to maintain the versions of all dependencies for your project.
+   - `build.gradle.kts` : The build script for the project.
+   - `gradlew` and `gradlew.bat` : The gradle wrapper scripts to run on OSX and Windows platforms. These scripts ensure that the build is run with the same Gradle version as the project irrespective of the Gradle version installed on the platforms.
+
+3. Run `gradle build` to build the project. The build should complete successfully. For any problems, refer to the console errors to debug and fix issues.
+
+4. Run `gradle run` to run the project. It will display "Hello World!" greeting on your console:
 
 
-Following are some important folders and files to know:
-- `app` folder: Contains the `build` and `source` folders for your project.
-- `gradle` folder: Contains code for gradle wrapper files and a `libs.versions.toml` file. The optional `libs.versions.toml` file is used as a catalog to maintain the versions of all dependencies for your project.
-- `build.gradle.kts` : The build script for the project.
-- `gradlew` and `gradlew.bat` : The gradle wrapper scripts to run on OSX and Windows platforms. These scripts ensure that the build is run with the same Gradle version as the project irrespective of the Gradle version installed on the platforms.
-
-4. Run `gradle build` to build the project. The build should complete successfully. For any problems, refer to the console errors to debug and fix issues.
-
-5. Run `gradle run` to run the project. It will display "Hello World!" greeting on your console:
-
-
-![Output of a basic Hello World Gradle project run](images/run_basic_gradle.png)
+   ![Output of a basic Hello World Gradle project run](images/run_basic_gradle.png)
 
 ## Part 2: Create a custom plugin extension
 
@@ -57,40 +56,33 @@ To create a custom plugin, you need to write an implementation of a plugin. Grad
 
 Follow the steps below to create the custom Greeting plugin. Since we're using Kotlin as the build script language, you need to write all the custom plugin code in the `build.gradle.kts` file.
 
-1. Add a class `Greeting` as shown below. This class extends the _**DefaultTask**_, which will write the "Hello World!" message to files. Remember, all classes in Gradle are always final. So, you need to declare your class as `open` when you want to extend it later.
-   The class takes inputs through 2 variables - `message` for the greeting message and `outputFiles` to hold the output files. It has a function `printMessage` annotated with `@TaskAnnotation` which defines the actual logic of the task.
+1. Add a class `Greeting` as shown below. This class extends the _**DefaultTask**_, which will write the "Hello World!" message to files. Remember, all classes in Gradle are always final. So, you need to declare your class as `open` when you want to extend it later.  The class takes inputs 
+   into 2 variables - `message` for the greeting message and `outputFiles` to hold the output files. It has a function `printMessage` annotated with `@TaskAnnotation` which defines the actual logic of the task.
 
    ![Greeting class code extending the default task executing custom logic for the plugin](images/add_greeting_class.png)
 
-2. Add the `GreetingPluginExtension` class which defines 2 properties - `message` for the greeting message and `outputFiles` for the output files. If you want to set the values for the properties in this class itself and not allow anyone to override them, declare them with the
-   `val` keyword. If you want to configure these properties later, declare them with the `var` keyword.
+2. Add the `GreetingPluginExtension` class which defines 2 properties - `message` for the greeting message and `outputFiles` for the output files. If you want to set the values for the properties in this class itself and not allow anyone to override them, declare them with the `val` keyword. If you want to configure these properties later, declare them with the `var` keyword.
 
    ![GreetingPluginExtension code defining properties required for the task](images/add_greeting_plugin_extension_class.png)
-
 
 3. Add the plugin definition code in a `GreetingPlugin` class. The plugin will create a `GreetingPluginExtension` object and set up a task `hello` which uses the configuration and executes the logic of writing the message to output files. The `hello` task will be included in the task-group
    `greeting`.
 
    ![GreetingPlugin class code which sets up the 'hello' task for Greeting Plugin](images/add_greeting_plugin_class.png)
 
-
 4. Configure the `GreetingPluginExtension` to set values for its properties.
 
    ![Configuring properties for the GreetingPluginExtension object](images/configure_greeting_plugin.png)
-
 
 5. Add the `buildFile` function which configures the location for the "a.txt" and "b.txt" files. Apply the plugin using `apply<GreetingPlugin>()` at the top of your build file.
 
    ![Apply plugin command](images/apply_plugin.png)
 
-
 6. Build the project and run `gradle tasks` to check if the new task `hello' is now included in your project's tasks.
 
    ![Listing tasks and checking if the greeting task is included](images/list_gradle_tasks.png)
 
-
 7. You can also run a build scan using `gradle build --scan` to share your build reports to other teams.
-
 
 8. Run the `hello` task using `gradle -q hello`. This command will write your greeting message to the output files "a.txt" and "b.txt" under your build folder.
 
