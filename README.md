@@ -72,11 +72,11 @@ Since the project uses `Kotlin` as the build script language, you need to write 
 
    ![GreetingPlugin class code which sets up the 'hello' task for Greeting Plugin](images/add_greeting_plugin_class.png)
 
-4. Configure the `GreetingPluginExtension` to set values for its properties.
+4. Configure the `GreetingPluginExtension` object to set values to its properties.
 
    ![Configuring properties for the GreetingPluginExtension object](images/configure_greeting_plugin.png)
 
-5. Add the `buildFile` function which configures the location for the "a.txt" and "b.txt" files. Apply the plugin using `apply<GreetingPlugin>()` at the top of your build file.
+5. Add the `buildFile` function which configures the location for the _a.txt_ and _b.txt_ files. Apply the plugin using `apply<GreetingPlugin>()` at the top of your build file.
 
    ![Apply plugin command](images/apply_plugin.png)
 
@@ -86,9 +86,12 @@ Since the project uses `Kotlin` as the build script language, you need to write 
 
 7. You can also run a build scan using `gradle build --scan` to share your build reports to other teams.
 
-8. Run the `hello` task using `gradle -q hello`. This command will write your greeting message to the output files "a.txt" and "b.txt" under your build folder.
+8. Run the `hello` task using `gradle -q hello`. This command will write the greeting message to the files _a.txt_ and _b.txt_ under your `build` folder.
 
    ![Output of the Greeting plugin execution](images/run_custom_plugin.png)
 
+## Related articles
+
+[Writing different types of plugins]()
 
  
