@@ -1,8 +1,8 @@
 # Custom plugin development using Gradle
 
 This tutorial describes how to get started with a basic Gradle project and create a simple plugin extension using Gradle.
-The first part explains how to set up a basic Gradle "Hello World" project.
-The second part helps you write a custom plugin extension using Kotlin.
+
+The first part explains how to set up a basic Gradle "Hello World" project. The second part helps you write a custom plugin extension using Kotlin.
 If you're new to Gradle, read [Gradle docs](https://docs.gradle.org/current/userguide/getting_started_eng.html) for more information about Gradle and its features.
 
 > **Note:** What you should know
@@ -15,8 +15,7 @@ If you're new to Gradle, read [Gradle docs](https://docs.gradle.org/current/user
 > - Download and install IntelliJ on your machine. If you don't prefer IntelliJ, you can install any other IDE of your choice.
 
 ## Set up a basic Gradle project
-If you know how to create a basic Gradle project, you can skip forward to [Custom plugin development](#create-a-custom-plugin-extension)
-Once you install all the prerequisites, follow the steps listed below to create and build a basic Gradle project:
+If you know how to create a basic Gradle project, you can skip forward to [Custom plugin development.](#create-a-custom-plugin-extension)Once you install all the prerequisites, follow the steps listed below to create and build a basic Gradle project:
 
 1. Open IntelliJ IDEA and create a new project with preset values as shown below:
 
