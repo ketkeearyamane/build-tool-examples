@@ -47,17 +47,16 @@ If you know how to create a basic Gradle project, you can skip forward to [Custo
 
 ## Creating a Greeting plugin extension
 
-The Greeting plugin extension writes the greeting message into 2 files, _a.txt_ and _b.txt_, under the `build` folder, in addition to displaying it on your console. <br/>
+The Greeting plugin extension writes the greeting message into 2 files, _a.txt_ and _b.txt_, under the `build` folder, in addition to displaying it on your console.
 
 ### Gradle plugins
-Gradle comes in with a powerful set of features like dependency management, project configuration, running builds and delivering software easily and quickly. However, if you want to perform other tasks like deploying artifacts, configuring project and enforcing standards, running certain tests
-etc., you can encapsulate such logic in a Gradle plugin. Plugins are lightweight, easy to maintain and promote code re-usability. For more information, see [Gradle plugins.](https://docs.gradle.org/current/userguide/custom_plugins.html)
-
-To create a custom plugin, you need to write an implementation of a plugin. Gradle will then instantiate the plugin and apply it using `<plugin-name>.apply()` method.
+Gradle comes with a powerful set of features like dependency management, project configuration, running builds, and delivering software easily and quickly. However, if you want to perform other tasks like deploying artifacts, configuring projects, enforcing standards, running certain tests, etc.,
+you can implement such logic in a Gradle plugin. Plugins are lightweight, easy to maintain, and promote code reusability. For more information, see [Gradle plugins.](https://docs.gradle.org/current/userguide/custom_plugins.html)
 
 ### Steps to create the custom Greeting plugin
+To create a custom plugin, you need to write an implementation of a plugin. Gradle will then instantiate the plugin and apply it using `<plugin-name>.apply()` method.
 
-Since the project uses Kotlin as the build script language, you need to write all the custom plugin code in the `build.gradle.kts` file.
+Since the project uses `Kotlin` as the build script language, you need to write all the custom plugin code in the `build.gradle.kts` file.
 
 1. Add a class `Greeting` as shown below. This class extends the _**DefaultTask**_, which will write the "Hello World!" message to files. Remember, all classes in Gradle are always final. So, you need to declare your class as `open` when you want to extend it later.  The class takes inputs 
    into 2 variables - `message` for the greeting message and `outputFiles` to hold the output files. It has a function `printMessage` annotated with `@TaskAnnotation` which defines the actual logic of the task.
