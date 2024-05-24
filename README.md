@@ -10,7 +10,7 @@ If you're new to Gradle, read [Gradle docs](https://docs.gradle.org/current/user
 > - A hands-on experience with IntelliJ IDEA or any modern IDE is good to have.
 
 > **Note:** Prerequisites to get started
-> - Download and install JDK version 11 or newer on your machine. For information on how to install JDK, see [install JDK.](https://docs.oracle.com/en/java/javase/21/install/overview-jdk-installation.html).
+> - Download and install JDK version 11 or newer on your machine. For information on how to install JDK, see [install JDK](https://docs.oracle.com/en/java/javase/21/install/overview-jdk-installation.html).
 > - Download and install Gradle version 8 or newer on your machine. For information on how to install Gradle, see [install gradle](https://gradle.org/install/).
 > - Download and install IntelliJ IDEA on your machine. If you don't prefer IntelliJ, you can install any other IDE of your choice.
 
@@ -21,7 +21,7 @@ If you know how to create a basic Gradle project, you can skip forward to [Creat
 
    ![Presets to create a basic project in IntelliJ IDEA](images/create_basic_project.png)
 
-2. Open a terminal and navigate to the project folder. Run `gradle init`. This command will help set up a Gradle "Hello World" project with `Java` as the source code language and `Kotlin` as the build script language. You can choose the following presets if you're not sure of the choices.
+2. Open a terminal and navigate to the project folder. Run `gradle init`. This command will help set up a Gradle "Hello World" project with `Java` as the source code language and `Kotlin` as the build script language. You can choose the following presets if you're not sure of the choices:
 
 
    ![Initialize gradle project preset values_part1](images/execute_gradle_init_1.png)
@@ -58,7 +58,7 @@ To create a custom plugin, you need to write an implementation of a plugin. Grad
 
 Since the project uses `Kotlin` as the build script language, you need to write all the custom plugin code in the `build.gradle.kts` file.
 
-1. Add a class `Greeting` as shown below. This class extends the _**DefaultTask**_, which will write the "Hello World!" message to files. Remember, all classes in Gradle are always final. So, you need to declare your class as `open` when you want to extend it later.  The class takes inputs 
+1. Add a class `Greeting` as shown below. This class extends the _**DefaultTask**_, which will write the "Hello World!" message to files. Remember, all classes in Gradle are always final. So, you need to declare your class as `open` when you want to extend it later. The class takes inputs 
    into 2 arguments - `message` for the greeting message and `outputFiles` for the file names. It has a function `printMessage` annotated with `@TaskAnnotation` which defines the actual logic of the task.
 
    ![Greeting class code extending the default task executing custom logic for the plugin](images/add_greeting_class.png)
@@ -87,7 +87,7 @@ Since the project uses `Kotlin` as the build script language, you need to write 
 
 7. You can also run a build scan using `gradle build --scan` to share your build reports to other teams.
 
-8. Run the `hello` task using `gradle -q hello`. This command will write the greeting message to the files _a.txt_ and _b.txt_ under your `build` folder.
+8. Run the `hello` task using `gradle -i hello`. This command will write the greeting message to the files _a.txt_ and _b.txt_ under your `build` folder.
 
    ![Output of the Greeting plugin execution](images/run_custom_plugin.png)
 
